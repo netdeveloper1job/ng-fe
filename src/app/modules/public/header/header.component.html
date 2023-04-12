@@ -1,0 +1,51 @@
+
+<!-- START NAVBAR -->
+<div
+  id="navigation"
+  class="navbar-light bg-faded site-navigation"
+  [ngStyle]="{
+    top: _auth.isAuthenticated() && status != 'verified' ? '20px' : '0px'
+  }"
+>
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="site-logo">
+          <a class="navbar-logo" [routerLink]="['/notes']"
+            ><h2 class="logo">Notes Generator</h2></a>
+        </div>
+      </div>
+      <!--- END Col -->
+     
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="header_right d-flex align-items-center">
+          <nav>
+            <ul class="list-unstyled d-flex align-items-center justify-content-between gap-3">
+              <li><a [routerLink]="['/notes']" class="text-white">Notes</a></li>
+              <li>
+                <a
+                  class="block-menu"
+                  [routerLink]="['/login']"
+                  *ngIf="!_auth.isAuthenticated()"
+                  >Login</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <div class="align-items-center" *ngIf="_auth.isAuthenticated()">
+            <li class="nav-item dropdown dropdown-user" >
+              <a class="dropdown-item text-white" role="button" (click)="logout()"
+              >Logout</a
+            >
+            </li>
+          </div>
+        </div>
+      </div>
+      <!--- END Col -->
+    </div>
+    <!--- END ROW -->
+  </div>
+  <!--- END CONTAINER -->
+</div>
+<!-- END NAVBAR -->

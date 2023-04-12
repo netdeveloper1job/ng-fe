@@ -1,0 +1,96 @@
+<!-- START TOKEN SALE -->
+<section id="token_sale" class="token_sale_area section-padding">
+  <div class="container">
+    <div class="section-title text-center mt-5">
+      <h2 class="section-title-white">Note</h2>
+      <span></span>
+    </div>
+    <div class="row token_mb">
+      <div
+        class="col-lg-3 col-sm-12 col-xs-12 wow fadeInUp"
+        data-wow-duration="1s"
+        data-wow-delay="0.2s"
+        data-wow-offset="0"
+      ></div>
+      <!--- END COL -->
+
+      <div
+        class="col-lg-6 col-sm-12 col-xs-12 text-center wow fadeInLeft"
+        data-wow-duration="1s"
+        data-wow-delay="0.1s"
+        data-wow-offset="0"
+      >
+        <div class="buy-icons">
+          <div class="ca-starts-in">
+            <div class="contact">
+              <form
+                class="form"
+                [formGroup]="form"
+                novalidate
+                (ngSubmit)="onSubmit()"
+              >
+                <div class="row">
+                  <div class="form-group col-md-12">
+                    <input
+                      type="text"
+                      formControlName="title"
+                      name="title"
+                      class="form-control"
+                      placeholder="Title"
+                      required="required"
+                    />
+                    <!-- error block -->
+                    <div
+                      class="invalid-feedback d-block"
+                      *ngIf="(f?.['title']?.touched || submitted) && f?.['title']?.errors?.['required']"
+                    >
+                      <sup>*</sup>Please enter title
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <textarea
+                      type="text"
+                      formControlName="description"
+                      name="description"
+                      class="form-control"
+                      placeholder="Description"
+                      required="required"
+                    ></textarea>
+                    <div
+                      class="invalid-feedback d-block"
+                      *ngIf="(f?.['description']?.touched || submitted) && f?.['description']?.errors?.['required']"
+                    >
+                      <sup>*</sup>Please enter description
+                    </div>
+                  </div>
+                  <div class="col-md-12 text-center mt-3">
+                    <button
+                      type="submit"
+                      value="sign"
+                      name="submit"
+                      class="btn_one"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--- END COL -->
+      <div
+        class="col-lg-3 col-sm-12 col-xs-12 wow fadeInUp"
+        data-wow-duration="1s"
+        data-wow-delay="0.3s"
+        data-wow-offset="0"
+      ></div>
+      <!--- END COL -->
+    </div>
+    <!--- END ROW -->
+  </div>
+  <!--- END CONTAINER -->
+</section>
+<!-- END TOKEN SALE -->

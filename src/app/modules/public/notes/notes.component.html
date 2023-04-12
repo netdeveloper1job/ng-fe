@@ -1,0 +1,58 @@
+<div class="site-section-new mt-5">
+  <section class="why_choose_us section-padding">
+    <div class="container">
+      <div class="section-title text-center">
+        <h2>Notes List</h2>
+        <span></span>
+      </div>
+      <div class="row text-center">
+        <div
+          class="col-lg-4 col-sm-4 col-xs-12 wow fadeInLeft note-list mt-3"
+          data-wow-duration="1s"
+          data-wow-delay="0.1s"
+          data-wow-offset="0"
+          *ngFor="let data of usernote"
+        >
+          <div class="single_about">
+            <h4>{{ data.title }}</h4>
+            <p class="text-white text-limit">
+              {{ data.description }}
+            </p>
+          </div>
+          <div ngbDropdown placement="bottom-right" class="drop-menu">
+            <a class="line" id="gfg" ngbDropdownToggle>
+              <ul class="list-line">
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </a>
+            <div ngbDropdownMenu="gfg">
+              <a ngbDropdownItem class="edit" (click)="noteEdit(data.id)"
+                ><i class="fa fa-pencil"></i
+              ></a>
+              <a ngbDropdownItem class="delete" (click)="deletenote(data.id)"
+                ><i class="fa fa-trash"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-4 col-sm-4 col-xs-12 wow fadeInLeft note-list mt-3"
+          data-wow-duration="1s"
+          data-wow-delay="0.1s"
+          data-wow-offset="0"
+        >
+          <div class="single_about">
+            <a class="adds" routerLink="/create-notes"
+              ><i class="fa fa-plus"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- END ROW -->
+    </div>
+    <!-- END CONTAINER -->
+  </section>
+</div>

@@ -1,0 +1,54 @@
+.site-section-new {
+  min-height: 87vh;
+}
+.section-title h2 {
+  color: #000;
+}
+.note-list {
+  position: relative;
+}
+.drop-menu.dropdown {
+  position: absolute;
+  top: 3px;
+  right: 10px;
+}
+ul.list-line {
+  margin: 0px;
+  cursor: pointer;
+}
+ul.list-line li {
+  color: #fff;
+  height: 10px;
+}
+.dropdown-toggle::after {
+  opacity: 0;
+}
+.edit {
+  color: rgb(103, 175, 199);
+  cursor: pointer;
+}
+.delete {
+  color: lightcoral;
+  cursor: pointer;
+}
+::ng-deep .dropdown-menu {
+  min-width: 50px !important;
+  padding: 5px !important;
+  position: absolute !important;
+  top: -15px !important;
+  right: 10px !important;
+}
+i.fa.fa-plus {
+  font-size: 80px;
+  cursor: pointer;
+  color: rgb(89, 159, 182);
+}
+.section-padding {
+  padding: 0px 0;
+}
+.text-limit {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 280px;
+}
