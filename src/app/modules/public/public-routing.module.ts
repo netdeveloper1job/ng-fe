@@ -46,35 +46,7 @@ const routes: Routes = [
         path: 'signup',
         component: SignupComponent,
       },
-      // {
-      //   path: 'user-dashboard',
-      //   component: UserDashboardComponent,
-      //   data: { expectedRole: 'user' },
-        // canActivate: [AuthGuard, RoleGuard],
-        // children: [
-        //   {
-        //     path: 'user-profile',
-        //     component: ProfileComponent,
-        //   },
-        //   {
-        //     path: 'kyc-verification',
-        //     component: KycVerificationComponent,
-        //   },
-        //   {
-        //     path: 'purchase-history',
-        //     component: PurchaseHistoryComponent,
-        //   },
-        //   {
-        //     path: 'update-password',
-        //     component: UpdatePasswordComponent,
-        //   },
-        //   {
-        //     path: 'crypto-address',
-        //     component: CryptoAddressComponent,
-        //   },
-        // ],
-     // },
-     
+      
      
       { path: '**', redirectTo: '' },
     ],

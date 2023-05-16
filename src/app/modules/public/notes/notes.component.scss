@@ -52,3 +52,18 @@ i.fa.fa-plus {
   text-overflow: ellipsis;
   max-width: 280px;
 }
+
+::ng-deep .tooltip-inner {
+  max-width:80% !important;
+  padding: var(--bs-tooltip-padding-y) var(--bs-tooltip-padding-x);
+  color: var(--bs-tooltip-color);
+  text-align: center;
+  background-color: var(--bs-tooltip-bg);
+  border-radius: var(--bs-tooltip-border-radius);
+  width:auto !important;
+  margin: 0 auto;
+}
+::ng-deep .tooltip.show {
+  opacity: var(--bs-tooltip-opacity);
+  width: 100%;
+}

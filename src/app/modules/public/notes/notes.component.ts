@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { NoteService } from 'src/app/core/service/note.service';
+import { NotebyuseridService } from 'src/app/core/service/notebyuserid.service';
+import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 
 @Component({
   selector: 'app-notes',
@@ -14,35 +17,52 @@ export class NotesComponent {
   usernote: any;
   public note: any;
   confirmDialogService: any;
+  modalRef: any;
   constructor(
     private _note: NoteService,
-
+    private _noteByUserId :NotebyuseridService,
     private toastr: ToastrService,
-    private _router: Router
+    private _router: Router,private modalService: NgbModal
   ) {}
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user') || '');
-    this.getnotes();
+    this.getNotesByUserId();
   }
 
-  getnotes() {
-    this._note.get().subscribe((res: any) => {
+  getNotesByUserId() {
+    console.log('hit');
+    this._noteByUserId.getById(this.user.id).subscribe((res: any) => {
       this.note = res;
-      this.usernote = this.note.filter((x: any) => x.userId == this.user.id);
+      console.log('data',this.note);
     });
   }
 
   deletenote(id: any) {
-    this._note.delete(id).subscribe(
-      (res) => {
-        this.toastr.success(res.message, 'Note Deleted');
-        this.getnotes();
+    this.modalRef = this.modalService.open(DeleteComponent);
+    this.modalRef.componentInstance.id = id;
+    this.modalRef.componentInstance.service = this._note;
+    this.modalRef.result.then(
+      (result:any) => {
+        console.log(`Closed with: ${result}`);
       },
-      (err) => {
-        this.toastr.error(err.message, 'Error');
+      (reason:any) => {
+        console.log(`Dismissed ${this.getDismissReason(reason)}`);
       }
     );
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else if (reason == 'Delete successfully') {
+      this.getNotesByUserId();
+      return `with: ${reason}`;
+    } else {
+      return `with: ${reason}`;
+    }
   }
 
   noteEdit(id: any) {

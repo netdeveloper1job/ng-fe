@@ -7,17 +7,18 @@
       </div>
       <div class="row text-center">
         <div
-          class="col-lg-4 col-sm-4 col-xs-12 wow fadeInLeft note-list mt-3"
+          class="col-lg-4 col-md-6 col-sm-12 col-xs-12 wow fadeInLeft note-list mt-3"
           data-wow-duration="1s"
           data-wow-delay="0.1s"
           data-wow-offset="0"
-          *ngFor="let data of usernote"
+          *ngFor="let data of note"
         >
-          <div class="single_about">
+          <div class="single_about" placement="bottom" ngbTooltip="{{ data.description }}">
             <h4>{{ data.title }}</h4>
             <p class="text-white text-limit">
               {{ data.description }}
             </p>
+          
           </div>
           <div ngbDropdown placement="bottom-right" class="drop-menu">
             <a class="line" id="gfg" ngbDropdownToggle>
@@ -38,7 +39,7 @@
           </div>
         </div>
         <div
-          class="col-lg-4 col-sm-4 col-xs-12 wow fadeInLeft note-list mt-3"
+          class="col-lg-4 col-md-6 col-sm-12 col-xs-12 wow fadeInLeft note-list mt-3"
           data-wow-duration="1s"
           data-wow-delay="0.1s"
           data-wow-offset="0"
@@ -50,8 +51,8 @@
           </div>
         </div>
       </div>
-
       <!-- END ROW -->
+     
     </div>
     <!-- END CONTAINER -->
   </section>
